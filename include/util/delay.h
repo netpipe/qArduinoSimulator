@@ -37,6 +37,7 @@
 
 #include <inttypes.h>
 #include <util/delay_basic.h>
+#include "pins_arduino.h"
 
 /** \file */
 /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops

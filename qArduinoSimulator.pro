@@ -26,7 +26,8 @@ DEFINES += ARDUSIM
 DEFINES += ENABLE_API_NAME
 DEFINES += __AVR_ATmega328P__
 DEFINES += ARDUINO=100
-DEFINES += ARDUINO_MAIN #SKETCH
+#DEFINES += ARDUINO_MAIN
+#DEFINES +=SKETCH
 DEFINES += F_CPU=1000000UL
 QMAKE_CXXFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
 QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
@@ -53,7 +54,8 @@ SOURCES += \
     arduino/cores/HID.cpp \
     arduino/cores/HardwareSerial.cpp \
     arduino/cores/CDC.cpp \
-    arduino/cores/wiring.c
+    arduino/cores/wiring.c \
+    arduino/cores/wiring_digital.c
 
 HEADERS += \
         mainwindow.h \
@@ -103,7 +105,8 @@ HEADERS += \
     include/util/parity.h \
     include/util/setbaud.h \
     include/util/twi.h \
-    arduino/variants/standard/pins_arduino.h
+    arduino/variants/standard/pins_arduino.h \
+    include/util/delay.h
 
 FORMS += \
         mainwindow.ui

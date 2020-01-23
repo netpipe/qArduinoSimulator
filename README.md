@@ -10,3 +10,6 @@ Arduino Simulator
 2. $ qmake .. && make
 
 other option is to use the makefile.
+
+
+irrlicht version working already here https://github.com/tecan/IrrlichtDemos/tree/master/Apps/ArduinoSim
