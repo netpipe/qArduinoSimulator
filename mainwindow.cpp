@@ -3,7 +3,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTimer>
-#include "QDebug"
+//#include "QDebug"
 
 #include "ardusim.h"
 
@@ -13,9 +13,6 @@
 
 #include <sketch/sketch.h>
 
-
-//void setup();
-//void loop();
 
 uint8_t SIM_SFR[65536] = {0};
 uint8_t SIM_MEM[65536] = {0};

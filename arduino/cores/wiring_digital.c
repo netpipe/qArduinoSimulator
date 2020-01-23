@@ -28,10 +28,10 @@
 #include "wiring_private.h"
 #include "pins_arduino.h"
 
-
 #ifdef ARDUSIM
 #include <stdio.h>
 #endif
+
 
 void pinMode(uint8_t pin, uint8_t mode)
 {
@@ -40,7 +40,8 @@ void pinMode(uint8_t pin, uint8_t mode)
 	volatile uint8_t *reg;
 
 #if defined(ARDUSIM) && defined(ENABLE_API_NAME)
-    printf("[API] pinMode(%d, %d)\n", pin, mode);
+    fprintf(stderr,"[API] pinMode(%d, %d)\n", pin, mode);
+   //  std::cout <<
 #endif
 
 	if (port == NOT_A_PIN) return;
@@ -62,7 +63,7 @@ void pinMode(uint8_t pin, uint8_t mode)
 	}
 
 #ifdef ARDUSIM
-    printf("[MCU] Pin %d mode changed to %s\n", pin, mode == INPUT ? "INPUT" : "OUTPUT");
+    fprintf(stderr,"[MCU] Pin %d mode changed to %s\n", pin, mode == INPUT ? "INPUT" : "OUTPUT");
 #endif
 }
 
@@ -144,7 +145,10 @@ void digitalWrite(uint8_t pin, uint8_t val)
 	volatile uint8_t *out;
 
 #if defined(ARDUSIM) && defined(ENABLE_API_NAME)
-    printf("[API] digitalWrite(%d, %d)\n", pin, val);
+    fprintf(stderr,"[API] digitalWrite(%d, %d)\n", pin, val);
+
+        //qDebug("[API] digitalWrite ");
+                 //<< pin << val;
 #endif
 
 	if (port == NOT_A_PIN) return;
@@ -178,7 +182,7 @@ int digitalRead(uint8_t pin)
 	uint8_t port = digitalPinToPort(pin);
 
 #if defined(ARDUSIM) && defined(ENABLE_API_NAME)
-    printf("[API] digitalRead(%d)\n", pin);
+    fprintf(stderr,"[API] digitalRead(%d)\n", pin);
 #endif
 
 	if (port == NOT_A_PIN) return LOW;
