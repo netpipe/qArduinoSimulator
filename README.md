@@ -1,6 +1,6 @@
 # qArduinoSimulator
 
-Arduino Simulator
+Arduino Simulator v0.1
 
 ![alt tag](screenshot.png)
 

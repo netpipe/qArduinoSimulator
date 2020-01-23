@@ -50,11 +50,13 @@ void pinMode(uint8_t pin, uint8_t mode)
 	if (mode == INPUT) {
 		uint8_t oldSREG = SREG;
  ///               cli();
+    fprintf(stderr, "[MCU] Global interrupt disabled\n");
 		*reg &= ~bit;
 		SREG = oldSREG;
 	} else {
 		uint8_t oldSREG = SREG;
                 ///cli();
+                   fprintf(stderr, "[MCU] Global interrupt disabled\n");
 		*reg |= bit;
 		SREG = oldSREG;
 	}

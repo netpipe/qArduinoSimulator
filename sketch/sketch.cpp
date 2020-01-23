@@ -1,4 +1,4 @@
-#ifdef SKETCH2
+#ifdef SKETCH
 #include <Arduino.h>
 
 /* Blink without Delay

@@ -152,7 +152,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label->setPixmap(QPixmap::fromImage(image));
 
 //initArduino()
-  //  mainArduino();
+mainArduino();
 //hook loop() to timer
 }
 
