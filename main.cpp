@@ -54,6 +54,21 @@ void setup() {
   pinMode(ledPin, OUTPUT);
 }
 
+unsigned long millis() {
+  printf("stub millis\n");
+  return 0;
+}
+
+void pinMode(uint8_t pin, uint8_t mode)
+{
+  printf("stub pinMode\n");
+}
+
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  printf("stub digitalWrite\n");
+}
+
 void loop()
 {
   // here is where you'd put code that needs to be running all the time.

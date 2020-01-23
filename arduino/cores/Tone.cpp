@@ -31,6 +31,7 @@ Version Modified By Date     Comments
 0007    M Sproul    10/08/29 Changed #ifdefs from cpu to register
 *************************************************/
 
+#include <Platform.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include "Arduino.h"
