@@ -37,12 +37,13 @@ QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+#all the standard arduinoIDE includes are compatable with this compile to make sketches compatable.
+#please include the paths here
 INCLUDEPATH += ./arduino/cores ./arduino/variants ./include ./arduino/variants/eightanaloginputs
-# ./arduino-1.8.9/hardware/tools/avr/avr/include/
+#INCLUDEPATH += ./arduino-1.8.9/hardware/tools/avr/avr/include/
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    sketch/sketch.cpp \
     arduino/cores/WString.cpp \
     arduino/cores/WMath.cpp \
     arduino/cores/USBCore.cpp \
@@ -106,7 +107,8 @@ HEADERS += \
     include/util/setbaud.h \
     include/util/twi.h \
     arduino/variants/standard/pins_arduino.h \
-    include/util/delay.h
+    include/util/delay.h \
+    sketch/sketch.h
 
 FORMS += \
         mainwindow.ui

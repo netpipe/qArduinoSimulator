@@ -1,4 +1,3 @@
-#ifdef SKETCH
 #include <Arduino.h>
 
 /* Blink without Delay
@@ -68,4 +67,3 @@ void loop()
   }
 }
 
-#endif
