@@ -12,6 +12,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
+    void cei();
+    void cli();
+    void setup();
+    void pinMode(uint8_t pin, uint8_t mode);
+    void digitalWrite(uint8_t pin, uint8_t val);
+
+
+  //  void loop();
+
+
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 

@@ -22,6 +22,7 @@
   $Id$
 */
 
+
 #include "wiring_private.h"
 
 // the prescaler is set so that timer0 ticks every 64 clock cycles, and the
@@ -199,7 +200,7 @@ void init()
 {
 	// this needs to be called before setup() or some functions won't
 	// work there
-	sei();
+///	sei();
 
 	// on the ATmega168, timer 0 is also used for fast hardware pwm
 	// (using phase-correct PWM would mean that timer 0 overflowed half as often

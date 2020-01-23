@@ -17,8 +17,19 @@ TEMPLATE = app
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-QMAKE_CXXFLAGS += -fdiagnostics-color -DARDUSIM
-QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM
+CONFIG += c++11
+
+#DEFINES += __cplusplus=201104L
+
+
+DEFINES += ARDUSIM
+DEFINES += ENABLE_API_NAME
+DEFINES += __AVR_ATmega328P__
+DEFINES += ARDUINO=100
+DEFINES += ARDUINO_MAIN #SKETCH
+DEFINES += F_CPU=1000000UL
+QMAKE_CXXFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
+QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -26,7 +37,7 @@ QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += ./arduino/cores ./arduino/variants ./include ./arduino/variants/eightanaloginputs
-
+# ./arduino-1.8.9/hardware/tools/avr/avr/include/
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
@@ -41,7 +52,8 @@ SOURCES += \
     arduino/cores/IPAddress.cpp \
     arduino/cores/HID.cpp \
     arduino/cores/HardwareSerial.cpp \
-    arduino/cores/CDC.cpp
+    arduino/cores/CDC.cpp \
+    arduino/cores/wiring.c
 
 HEADERS += \
         mainwindow.h \
@@ -90,7 +102,8 @@ HEADERS += \
     include/util/delay_basic.h \
     include/util/parity.h \
     include/util/setbaud.h \
-    include/util/twi.h
+    include/util/twi.h \
+    arduino/variants/standard/pins_arduino.h
 
 FORMS += \
         mainwindow.ui
