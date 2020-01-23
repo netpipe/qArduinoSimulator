@@ -2,6 +2,9 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QTimer>
+#include "QDebug"
+
 #include "ardusim.h"
 #define TEST3
 #ifdef TEST3
@@ -126,17 +129,20 @@ int mainArduino(void)
     setup();
 
   //  for (;;) {
-        loop();
-//        //update gui here
+          loop();
+
+     //        //update gui here
 
 //        //if (serialEventRun) serialEventRun();
 //        fprintf(stderr, "Loop %d\r", ++loopcount);
 //        usleep(50000);
  //   }
  //   return 0;
+      //  startTimer(0);
 }
 
 #endif
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -151,14 +157,21 @@ MainWindow::MainWindow(QWidget *parent) :
     QImage image(filename);
     ui->label->setPixmap(QPixmap::fromImage(image));
 
-//initArduino()
-mainArduino();
-//hook loop() to timer
+    //initArduino()
+    mainArduino();
+    //hook loop() to timer
+   timerId = startTimer(1000);
 }
 
 MainWindow::~MainWindow()
 {
+       killTimer(timerId);
     delete ui;
 }
 
+void MainWindow::timerEvent(QTimerEvent *event)
+{
+ //   qDebug() << "Update...";
+    loop();
+}
 

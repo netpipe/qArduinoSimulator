@@ -16,8 +16,8 @@ public:
     void cei();
     void cli();
     void setup();
-    void pinMode(uint8_t pin, uint8_t mode);
-    void digitalWrite(uint8_t pin, uint8_t val);
+ //   void pinMode(uint8_t pin, uint8_t mode);
+ //   void digitalWrite(uint8_t pin, uint8_t val);
 
 
   //  void loop();
@@ -25,7 +25,10 @@ public:
 
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    int timerId;
 
+protected:
+    void timerEvent(QTimerEvent *event);
 private:
     Ui::MainWindow *ui;
 };
