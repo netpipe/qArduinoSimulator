@@ -17,6 +17,9 @@ TEMPLATE = app
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
+QMAKE_CXXFLAGS += -fdiagnostics-color -DARDUSIM
+QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM
+
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
@@ -25,49 +28,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += ./arduino/cores ./arduino/variants ./include ./arduino/variants/eightanaloginputs
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    sketch/sketch.cpp \
-    arduino/cores/WString.cpp \
-    arduino/cores/WMath.cpp \
-    arduino/cores/USBCore.cpp \
-    arduino/cores/Tone.cpp \
-    arduino/cores/Stream.cpp \
-    arduino/cores/Print.cpp \
-    arduino/cores/new.cpp \
-    arduino/cores/main.cpp \
-    arduino/cores/IPAddress.cpp \
-    arduino/cores/HID.cpp \
-    arduino/cores/HardwareSerial.cpp \
-    arduino/cores/CDC.cpp \
-    arduino/cores/wiring.c \
-    arduino/cores/wiring_shift.c \
-    arduino/cores/wiring_pulse.c \
-    arduino/cores/wiring_digital.c \
-    arduino/cores/wiring_analog.c \
-    arduino/cores/WInterrupts.c \
-    arduino/cores/CDC.cpp \
-    arduino/cores/HardwareSerial.cpp \
-    arduino/cores/HID.cpp \
-    arduino/cores/IPAddress.cpp \
-    arduino/cores/main.cpp \
-    arduino/cores/new.cpp \
-    arduino/cores/Print.cpp \
-    arduino/cores/Stream.cpp \
-    arduino/cores/Tone.cpp \
-    arduino/cores/USBCore.cpp \
-    arduino/cores/WMath.cpp \
-    arduino/cores/WString.cpp \
-    sketch/sketch.cpp \
     main.cpp \
     mainwindow.cpp \
-    moc_mainwindow.cpp \
-    arduino/cores/WInterrupts.c \
-    arduino/cores/wiring.c \
-    arduino/cores/wiring_analog.c \
-    arduino/cores/wiring_digital.c \
-    arduino/cores/wiring_pulse.c \
-    arduino/cores/wiring_shift.c
+    sketch/sketch.cpp \
+    arduino/cores/WString.cpp \
+    arduino/cores/WMath.cpp \
+    arduino/cores/USBCore.cpp \
+    arduino/cores/Tone.cpp \
+    arduino/cores/Stream.cpp \
+    arduino/cores/Print.cpp \
+    arduino/cores/new.cpp \
+    arduino/cores/IPAddress.cpp \
+    arduino/cores/HID.cpp \
+    arduino/cores/HardwareSerial.cpp \
+    arduino/cores/CDC.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -79,7 +53,6 @@ HEADERS += \
     arduino/cores/USBAPI.h \
     arduino/cores/Udp.h \
     arduino/cores/Stream.h \
-    arduino/cores/stdint.h \
     arduino/cores/Server.h \
     arduino/cores/Printable.h \
     arduino/cores/Print.h \
@@ -91,26 +64,6 @@ HEADERS += \
     arduino/cores/binary.h \
     arduino/cores/ardusim.h \
     arduino/cores/Arduino.h \
-    arduino/cores/Arduino.h \
-    arduino/cores/ardusim.h \
-    arduino/cores/binary.h \
-    arduino/cores/Client.h \
-    arduino/cores/HardwareSerial.h \
-    arduino/cores/IPAddress.h \
-    arduino/cores/new.h \
-    arduino/cores/Platform.h \
-    arduino/cores/Print.h \
-    arduino/cores/Printable.h \
-    arduino/cores/Server.h \
-    arduino/cores/stdint.h \
-    arduino/cores/Stream.h \
-    arduino/cores/Udp.h \
-    arduino/cores/USBAPI.h \
-    arduino/cores/USBCore.h \
-    arduino/cores/USBDesc.h \
-    arduino/cores/WCharacter.h \
-    arduino/cores/wiring_private.h \
-    arduino/cores/WString.h \
     arduino/variants/eightanaloginputs/pins_arduino.h \
     arduino/variants/leonardo/pins_arduino.h \
     arduino/variants/mega/pins_arduino.h \
@@ -137,10 +90,7 @@ HEADERS += \
     include/util/delay_basic.h \
     include/util/parity.h \
     include/util/setbaud.h \
-    include/util/twi.h \
-    mainwindow.h \
-    moc_predefs.h \
-    ui_mainwindow.h
+    include/util/twi.h
 
 FORMS += \
         mainwindow.ui
