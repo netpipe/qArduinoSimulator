@@ -2,6 +2,9 @@
 
 Arduino Simulator v0.1
 
+todo
+verify all the removed cpp files and functions get back into the source tree.
+
 ![alt tag](screenshot.png)
 
 # Build
