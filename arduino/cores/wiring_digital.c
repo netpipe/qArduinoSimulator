@@ -28,6 +28,7 @@
 #include "wiring_private.h"
 #include "pins_arduino.h"
 
+
 #ifdef ARDUSIM
 #include <stdio.h>
 #endif
@@ -48,12 +49,12 @@ void pinMode(uint8_t pin, uint8_t mode)
 	reg = portModeRegister(port);
 	if (mode == INPUT) {
 		uint8_t oldSREG = SREG;
-                cli();
+ ///               cli();
 		*reg &= ~bit;
 		SREG = oldSREG;
 	} else {
 		uint8_t oldSREG = SREG;
-                cli();
+                ///cli();
 		*reg |= bit;
 		SREG = oldSREG;
 	}
@@ -153,7 +154,7 @@ void digitalWrite(uint8_t pin, uint8_t val)
 	out = portOutputRegister(port);
 
 	uint8_t oldSREG = SREG;
-	cli();
+///	cli();
 
 	if (val == LOW) {
 		*out &= ~bit;
