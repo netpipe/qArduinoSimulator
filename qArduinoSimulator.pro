@@ -56,7 +56,10 @@ SOURCES += \
     arduino/cores/HardwareSerial.cpp \
     arduino/cores/CDC.cpp \
     arduino/cores/wiring.c \
-    arduino/cores/wiring_digital.c
+    arduino/cores/wiring_digital.c \
+    arduino/cores/wiring_pulse.c \
+    arduino/cores/wiring_shift.c \
+    arduino/cores/wiring_analog.c
 
 HEADERS += \
         mainwindow.h \
@@ -108,7 +111,8 @@ HEADERS += \
     include/util/twi.h \
     arduino/variants/standard/pins_arduino.h \
     include/util/delay.h \
-    sketch/sketch.h
+    sketch/sketch.h \
+    arduino/cores/wiring_private.h
 
 FORMS += \
         mainwindow.ui
