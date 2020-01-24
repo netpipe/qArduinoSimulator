@@ -21,7 +21,7 @@
 extern unsigned char usrlib_img[];
 
 
-int main(void)
+int main2(void)
 {
 
 }

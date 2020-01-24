@@ -26,11 +26,11 @@ DEFINES += ARDUSIM
 DEFINES += ENABLE_API_NAME
 DEFINES += __AVR_ATmega328P__
 DEFINES += ARDUINO=100
-#DEFINES += ARDUINO_MAIN
-#DEFINES +=SKETCH
+#DEFINES += ARDUINO_MAIN #already defined
 DEFINES += F_CPU=1000000UL
-QMAKE_CXXFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
-QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
+
+QMAKE_CXXFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11 -fpermissive
+QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11 -fpermissive
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -40,7 +40,14 @@ QMAKE_CFLAGS += -fdiagnostics-color -DARDUSIM -std=c++11
 #all the standard arduinoIDE includes are compatable with this compile to make sketches compatable.
 #please include the paths here
 INCLUDEPATH += ./arduino/cores ./arduino/variants ./include ./arduino/variants/eightanaloginputs
-#INCLUDEPATH += ./arduino-1.8.9/hardware/tools/avr/avr/include/
+
+INCLUDEPATH +=  ./arduino-1.8.9/hardware/arduino/avr/libraries/EEPROM/src/
+#INCLUDEPATH +=  ./arduino-1.8.9/hardware/tools/avr/avr/include/
+
+
+#pymite testing
+#INCLUDEPATH += ./scripting/Pymite
+
 SOURCES += \
     main.cpp \
     mainwindow.cpp \

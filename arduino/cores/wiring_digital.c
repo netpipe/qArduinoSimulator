@@ -146,9 +146,6 @@ void digitalWrite(uint8_t pin, uint8_t val)
 
 #if defined(ARDUSIM) && defined(ENABLE_API_NAME)
     fprintf(stderr,"[API] digitalWrite(%d, %d)\n", pin, val);
-
-        //qDebug("[API] digitalWrite ");
-                 //<< pin << val;
 #endif
 
 	if (port == NOT_A_PIN) return;

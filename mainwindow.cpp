@@ -10,13 +10,47 @@
 
 #include "ardusim.h"
 
-//#include <Arduino.h>
+
+
+
+
+
+
+
+
+
+
+
+
+//////////  INO SKETCH AREA
+
+//Place INO files here
+
+#include <Arduino.h> // sometimes sketch has this already
+
 //#include <stdio.h>
+//#include "./scripting/TinyBasicPlus/TinyBasicPlus/TinyBasicPlus.ino" non working
+//#include "scripting/Pymite/Arduino-Pymite.ino"
 
 
-#include <sketch/sketch.h>
 
 
+#include <sketch/sketch.h> //default sketch
+
+////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+////////// previously Main.c imported into mainwindow
 uint8_t SIM_SFR[65536] = {0};
 uint8_t SIM_MEM[65536] = {0};
 
@@ -40,21 +74,21 @@ int mainArduino(void)
 #if defined(USBCON)
     USB.attach();
 #endif
-
     setup();
-
-  //  for (;;) {
-          loop();
-
-     //        //update gui here
+//  for (;;) {
+    loop();
+//        //update gui here
 
 //        //if (serialEventRun) serialEventRun();
 //        fprintf(stderr, "Loop %d\r", ++loopcount);
 //        usleep(50000);
- //   }
- //   return 0;
+//   }
+//   return 0;
       //  startTimer(0);
 }
+////////////////////////////////////////////////
+
+
 
 
 MainWindow::MainWindow(QWidget *parent) :

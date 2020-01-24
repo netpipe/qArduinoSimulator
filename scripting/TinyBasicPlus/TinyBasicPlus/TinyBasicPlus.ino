@@ -17,6 +17,7 @@
 // LICENSING NOTES:
 //    Mike Field based his C port of Tiny Basic on the 68000 
 //    Tiny BASIC which carried the following license:
+#include <Arduino.h>
 /*
 ******************************************************************
 *                                                                *
