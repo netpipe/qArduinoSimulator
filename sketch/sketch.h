@@ -23,7 +23,7 @@
  http://www.arduino.cc/en/Tutorial/BlinkWithoutDelay
  */
 
-#define F_CPU 1000000UL
+
 
 // constants won't change. Used here to
 // set pin numbers:

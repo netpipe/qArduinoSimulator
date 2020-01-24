@@ -5,6 +5,9 @@
 #include <QTimer>
 //#include "QDebug"
 
+
+#define F_CPU 1000000UL  // testing this cpu speed.
+
 #include "ardusim.h"
 
 //#include <Arduino.h>
