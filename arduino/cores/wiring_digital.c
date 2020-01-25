@@ -188,6 +188,6 @@ int digitalRead(uint8_t pin)
 	// before getting a digital reading.
 	if (timer != NOT_ON_TIMER) turnOffPWM(timer);
 
-///	if (*portInputRegister(port) & bit) return HIGH;
+    if (*portInputRegister(port) & bit) return HIGH;
 	return LOW;
 }
