@@ -168,7 +168,7 @@ void digitalWrite(uint8_t pin, uint8_t val)
 	SREG = oldSREG;
 
 #ifdef ARDUSIM
-    printf("[MCU] Pin %d state changed to %s\n", pin, val ? "HIGH" : "LOW");
+    fprintf(stderr,"[MCU] Pin %d state changed to %s\n", pin, val ? "HIGH" : "LOW");
 #endif
 }
 
