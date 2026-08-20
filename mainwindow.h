@@ -23,7 +23,6 @@ public:
 
   //  void loop();
 
-
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     int timerId;
@@ -32,6 +31,10 @@ protected:
     void timerEvent(QTimerEvent *event);
 private:
     Ui::MainWindow *ui;
+
+public slots:
+    void updatePin(int pin, int val);
+    void updatePinMode(int pin, int mode);
 };
 
 #endif // MAINWINDOW_H

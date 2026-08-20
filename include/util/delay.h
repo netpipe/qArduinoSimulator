@@ -38,7 +38,7 @@
 #include <inttypes.h>
 #include <util/delay_basic.h>
 #include "pins_arduino.h"
-
+#include "ardusim.h"
 /** \file */
 /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops
     \code
@@ -107,9 +107,10 @@ static inline void _delay_ms(double __ms) __attribute__((always_inline));
    delays up to 6.5535 seconds (independent from CPU frequency).  The
    user will not be informed about decreased resolution.
  */
-void
-_delay_ms(double __ms)
-{
+void _delay_ms(double __ms) {
+#ifdef ARDUSIM
+    usleep((unsigned int)(__ms * 1000));
+#else
 	uint16_t __ticks;
 	double __tmp = ((F_CPU) / 4e3) * __ms;
 	if (__tmp < 1.0)
@@ -129,6 +130,7 @@ _delay_ms(double __ms)
 	else
 		__ticks = (uint16_t)__tmp;
 	_delay_loop_2(__ticks);
+#endif
 }
 
 /**
@@ -145,9 +147,10 @@ _delay_ms(double __ms)
    _delay_us() will automatically call _delay_ms() instead.  The user
    will not be informed about this case.
  */
-void
-_delay_us(double __us)
-{
+void _delay_us(double __us) {
+#ifdef ARDUSIM
+    usleep((unsigned int)__us);
+#else
 	uint8_t __ticks;
 	double __tmp = ((F_CPU) / 3e6) * __us;
 	if (__tmp < 1.0)
@@ -160,6 +163,7 @@ _delay_us(double __us)
 	else
 		__ticks = (uint8_t)__tmp;
 	_delay_loop_1(__ticks);
+#endif
 }
 
 

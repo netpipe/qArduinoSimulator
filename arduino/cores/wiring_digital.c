@@ -169,6 +169,8 @@ void digitalWrite(uint8_t pin, uint8_t val)
 
 #ifdef ARDUSIM
     fprintf(stderr,"[MCU] Pin %d state changed to %s\n", pin, val ? "HIGH" : "LOW");
+    extern void gui_update_pin_mode(int pin, int val);
+    gui_update_pin_mode(pin, val);
 #endif
 }
 

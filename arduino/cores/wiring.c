@@ -96,7 +96,8 @@ unsigned long micros() {
 #ifdef ARDUSIM
     struct timeval tv;
     gettimeofday(&tv, 0);
-    return tv.tv_usec;
+    // Correct implementation for micros
+    return (unsigned long)(tv.tv_sec * 1000000UL) + tv.tv_usec;
 #else
 	unsigned long m;
 	uint8_t oldSREG = SREG, t;
@@ -126,10 +127,10 @@ unsigned long micros() {
 #endif
 }
 
-void delay(unsigned long ms)
-{
+void delay(unsigned long ms) {
 #ifdef ARDUSIM
-    usleep(ms*1000);
+    extern void gui_delay(unsigned long ms);
+    gui_delay(ms); // Keeps the Qt Event Loop alive during delay
 #else
 	uint16_t start = (uint16_t)micros();
 
