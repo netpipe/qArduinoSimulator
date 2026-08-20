@@ -151,9 +151,17 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #define digitalPinToBitMask(P) ( pgm_read_byte( digital_pin_to_bit_mask_PGM + (P) ) )
 #define digitalPinToTimer(P) ( pgm_read_byte( digital_pin_to_timer_PGM + (P) ) )
 #define analogInPinToBit(P) (P)
+#ifdef ARDUSIM
+// On desktop, these are arrays of pointers, so we just index them directly
+#define portOutputRegister(P) ( (volatile uint8_t *)( port_to_output_PGM[(P)] ) )
+#define portInputRegister(P) ( (volatile uint8_t *)( port_to_input_PGM[(P)] ) )
+#define portModeRegister(P) ( (volatile uint8_t *)( port_to_mode_PGM[(P)] ) )
+#else
+// On real AVR hardware, they are arrays of addresses (uint16_t)
 #define portOutputRegister(P) ( (volatile uint8_t *)( pgm_read_word( port_to_output_PGM + (P))) )
 #define portInputRegister(P) ( (volatile uint8_t *)( pgm_read_word( port_to_input_PGM + (P))) )
 #define portModeRegister(P) ( (volatile uint8_t *)( pgm_read_word( port_to_mode_PGM + (P))) )
+#endif
 
 #define NOT_A_PIN 0
 #define NOT_A_PORT 0

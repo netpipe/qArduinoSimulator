@@ -148,24 +148,24 @@ void digitalWrite(uint8_t pin, uint8_t val)
     fprintf(stderr,"[API] digitalWrite(%d, %d)\n", pin, val);
 #endif
 
-	if (port == NOT_A_PIN) return;
+    if (port == NOT_A_PIN) return;
 
-	// If the pin that support PWM output, we need to turn it off
-	// before doing a digital write.
-	if (timer != NOT_ON_TIMER) turnOffPWM(timer);
+    // If the pin that support PWM output, we need to turn it off
+    // before doing a digital write.
+    if (timer != NOT_ON_TIMER) turnOffPWM(timer);
 
-	out = portOutputRegister(port);
+    out = portOutputRegister(port);
 
-	uint8_t oldSREG = SREG;
+    uint8_t oldSREG = SREG;
 ///	cli();
 
-	if (val == LOW) {
-		*out &= ~bit;
-	} else {
-		*out |= bit;
-	}
+    if (val == LOW) {
+        *out &= ~bit;
+    } else {
+        *out |= bit;
+    }
 
-	SREG = oldSREG;
+    SREG = oldSREG;
 
 #ifdef ARDUSIM
     fprintf(stderr,"[MCU] Pin %d state changed to %s\n", pin, val ? "HIGH" : "LOW");

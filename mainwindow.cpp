@@ -16,13 +16,6 @@
 
 
 
-
-
-
-
-
-
-
 //////////  INO SKETCH AREA
 
 //Place INO files here
@@ -155,9 +148,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    QString filename = "./leonardo-small.png";
+    QString filename = QApplication::applicationDirPath() + "/leonardo-small.png";
     QImage image(filename);
-    ui->label->setPixmap(QPixmap::fromImage(image));
+   ui->label->setPixmap(QPixmap::fromImage(image));
 
     //initArduino()
     mainArduino();
@@ -173,7 +166,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
- //   qDebug() << "Update...";
+    qDebug() << "Update...";
     loop();
 }
 

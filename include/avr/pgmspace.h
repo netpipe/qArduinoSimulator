@@ -806,7 +806,7 @@ not interfere with data accesses.
     \note The address is a byte address.
     The address is in the program space. */
 
-#define pgm_read_word(address_short)    *(uint32_t*)address_short
+#define pgm_read_word(address_short)    *(uint16_t*)address_short
 
 /** \ingroup avr_pgmspace
     \def pgm_read_dword(address_short)

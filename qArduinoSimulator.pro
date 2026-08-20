@@ -17,7 +17,7 @@ TEMPLATE = app
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-##CONFIG += c++11
+#CONFIG += c++11
 
 #DEFINES += __cplusplus=201104L
 
